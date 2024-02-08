@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  postgres:
+    container_name: threads-db
+    image: postgres
+    ports:
+      - 5432:5432    #default port of postgres:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data #store the data from this add to volume postgres data such that upon shutting off, the data is still stored in our local machine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: threads
+      POSTGRES_PASSWORD: Pass@123
+
+volumes:
+  postgres_data:
